@@ -30,11 +30,9 @@ process.chdir('ROCKSNIFFER_OUTPUT_DIRECTORY')
 
 // Activate function that listens for keypress.
 ioHook.on('keydown', function(KeyPress) {
-	
-	// Listen for specific keypress button to activate Request bot. Default (73) is NumPad 9
+	// Uncomment the following line to have the script print out the keypress detail for custom configuration
+	// console.log(KeyPress);  
 	if(KeyPress.keycode == 73){
-		// Uncomment the following line to have the script print out the key press detail for custom configuration
-		// console.log(KeyPress);  
 		
 		// Read song_details.txt from RockSniffer to determine 'Artist - Song Title'
 		fs.readFile('song_details.txt', 'utf8', function(err, data) {
@@ -43,8 +41,12 @@ ioHook.on('keydown', function(KeyPress) {
 			if (err) throw err;
 			
 			// If song_details.txt not empty, create and send string to chat in the form of '!sr ARTIST - TITLE' for KokoliBot
-			if (data !== '') {client.say('CHANNEL_NAME','!sr ' + data);}
+			if (data !== '') {client.say('poizenjam','!sr ' + data);}
 		});	
+	}
+	
+	if(KeyPress.keycode == 77){
+		client.say('poizenjam','!next');	
 	}
 });
 

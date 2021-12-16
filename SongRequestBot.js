@@ -41,12 +41,12 @@ ioHook.on('keydown', function(KeyPress) {
 			if (err) throw err;
 			
 			// If song_details.txt not empty, create and send string to chat in the form of '!sr ARTIST - TITLE' for KokoliBot
-			if (data !== '') {client.say('poizenjam','!sr ' + data);}
+			if (data !== '') {client.say('CHANNEL_NAME','!sr ' + data);}
 		});	
 	}
 	
 	if(KeyPress.keycode == 77){
-		client.say('poizenjam','!next');	
+		client.say('CHANNEL_NAME','!next');	
 	}
 });
 
